@@ -10,4 +10,12 @@
 
 @implementation Answer
 
+@dynamic answer;
+@dynamic askedBy;
+@dynamic questionPosted;
+
++ (NSString *)parseClassName {
+    return @"Answer";
+}
+
 @end

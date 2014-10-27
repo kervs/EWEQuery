@@ -8,6 +8,11 @@
 
 #import <Parse/Parse.h>
 
-@interface Answer : PFObject
+@interface Answer : PFObject<PFSubclassing>
+
++ (NSString *)parseClassName;
+@property (retain) NSString *answer;
+@property (retain) PFUser *askedBy;
+@property (retain) PFObject *questionPosted;
 
 @end

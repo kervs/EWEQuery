@@ -8,6 +8,12 @@
 
 #import <Parse/Parse.h>
 
-@interface Query : PFObject
+@interface Query : PFObject<PFSubclassing>
+
++ (NSString *)parseClassName;
+@property (retain) NSString *query;
+@property (retain) PFUser *askedBy;
+
+
 
 @end

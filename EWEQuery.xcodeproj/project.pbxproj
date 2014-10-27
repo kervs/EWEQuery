@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B4B81D719F967E700BF2C29 /* Query.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B81D619F967E700BF2C29 /* Query.m */; };
+		3B4B81DA19F9A03700BF2C29 /* TestMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B81D919F9A03700BF2C29 /* TestMainViewController.m */; };
+		3B4B81E619FAB41E00BF2C29 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B81E519FAB41E00BF2C29 /* Answer.m */; };
 		3B76501C19F06D8300CDA6EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B76501B19F06D8300CDA6EC /* main.m */; };
 		3B76501F19F06D8300CDA6EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B76501E19F06D8300CDA6EC /* AppDelegate.m */; };
 		3B76502219F06D8300CDA6EC /* EWEQuery.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B76502019F06D8300CDA6EC /* EWEQuery.xcdatamodeld */; };
-		3B76502A19F06D8300CDA6EC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B76502919F06D8300CDA6EC /* Images.xcassets */; };
 		3B76502D19F06D8300CDA6EC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B76502B19F06D8300CDA6EC /* LaunchScreen.xib */; };
 		3B76503919F06D8300CDA6EC /* EWEQueryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B76503819F06D8300CDA6EC /* EWEQueryTests.m */; };
-		3B76504419F0740800CDA6EC /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B76504319F0740800CDA6EC /* MainViewController.m */; };
 		3B76504719F0A86B00CDA6EC /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B76504619F0A86B00CDA6EC /* LoginViewController.m */; };
 		3B76504A19F0C32A00CDA6EC /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B76504919F0C32A00CDA6EC /* DataSource.m */; };
+		3B76504D19F1688B00CDA6EC /* CustomMainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B76504C19F1688B00CDA6EC /* CustomMainViewCell.m */; };
+		3BC0D72A19F6372F00CE2929 /* AddQuestionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BC0D72919F6372F00CE2929 /* AddQuestionView.m */; };
+		3BC0D72E19F6B9CC00CE2929 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BC0D72D19F6B9CC00CE2929 /* images.xcassets */; };
+		3BFDEC2D19FEC6A20037B082 /* AnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BFDEC2C19FEC6A20037B082 /* AnswerViewController.m */; };
 		FDD36B41E795B5074266963C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A7B5A1833BF2ED550B4D31B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -30,23 +35,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B4B81D519F967E700BF2C29 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
+		3B4B81D619F967E700BF2C29 /* Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Query.m; sourceTree = "<group>"; };
+		3B4B81D819F9A03700BF2C29 /* TestMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMainViewController.h; sourceTree = "<group>"; };
+		3B4B81D919F9A03700BF2C29 /* TestMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestMainViewController.m; sourceTree = "<group>"; };
+		3B4B81E419FAB41E00BF2C29 /* Answer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Answer.h; sourceTree = "<group>"; };
+		3B4B81E519FAB41E00BF2C29 /* Answer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Answer.m; sourceTree = "<group>"; };
 		3B76501619F06D8300CDA6EC /* EWEQuery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EWEQuery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B76501A19F06D8300CDA6EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B76501B19F06D8300CDA6EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3B76501D19F06D8300CDA6EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B76501E19F06D8300CDA6EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3B76502119F06D8300CDA6EC /* EWEQuery.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EWEQuery.xcdatamodel; sourceTree = "<group>"; };
-		3B76502919F06D8300CDA6EC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3B76502C19F06D8300CDA6EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3B76503219F06D8300CDA6EC /* EWEQueryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EWEQueryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B76503719F06D8300CDA6EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B76503819F06D8300CDA6EC /* EWEQueryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EWEQueryTests.m; sourceTree = "<group>"; };
-		3B76504219F0740800CDA6EC /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		3B76504319F0740800CDA6EC /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		3B76504519F0A86B00CDA6EC /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		3B76504619F0A86B00CDA6EC /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		3B76504819F0C32A00CDA6EC /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		3B76504919F0C32A00CDA6EC /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		3B76504B19F1688B00CDA6EC /* CustomMainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomMainViewCell.h; sourceTree = "<group>"; };
+		3B76504C19F1688B00CDA6EC /* CustomMainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomMainViewCell.m; sourceTree = "<group>"; };
+		3BC0D72819F6372F00CE2929 /* AddQuestionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddQuestionView.h; sourceTree = "<group>"; };
+		3BC0D72919F6372F00CE2929 /* AddQuestionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddQuestionView.m; sourceTree = "<group>"; };
+		3BC0D72D19F6B9CC00CE2929 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = images.xcassets; path = ../images.xcassets; sourceTree = "<group>"; };
+		3BFDEC2B19FEC6A20037B082 /* AnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerViewController.h; sourceTree = "<group>"; };
+		3BFDEC2C19FEC6A20037B082 /* AnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerViewController.m; sourceTree = "<group>"; };
 		47846ACA289B1E7D0D80C0F6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4A7B5A1833BF2ED550B4D31B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F259E104BCC59B38703D5F1C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -113,13 +128,23 @@
 			children = (
 				3B76501D19F06D8300CDA6EC /* AppDelegate.h */,
 				3B76501E19F06D8300CDA6EC /* AppDelegate.m */,
+				3BC0D72819F6372F00CE2929 /* AddQuestionView.h */,
+				3BC0D72919F6372F00CE2929 /* AddQuestionView.m */,
+				3B4B81D519F967E700BF2C29 /* Query.h */,
+				3B4B81D619F967E700BF2C29 /* Query.m */,
+				3B4B81E419FAB41E00BF2C29 /* Answer.h */,
+				3B4B81E519FAB41E00BF2C29 /* Answer.m */,
 				3B76504519F0A86B00CDA6EC /* LoginViewController.h */,
 				3B76504619F0A86B00CDA6EC /* LoginViewController.m */,
-				3B76504219F0740800CDA6EC /* MainViewController.h */,
-				3B76504319F0740800CDA6EC /* MainViewController.m */,
+				3B76504B19F1688B00CDA6EC /* CustomMainViewCell.h */,
+				3B76504C19F1688B00CDA6EC /* CustomMainViewCell.m */,
+				3B4B81D819F9A03700BF2C29 /* TestMainViewController.h */,
+				3B4B81D919F9A03700BF2C29 /* TestMainViewController.m */,
+				3BFDEC2B19FEC6A20037B082 /* AnswerViewController.h */,
+				3BFDEC2C19FEC6A20037B082 /* AnswerViewController.m */,
 				3B76504819F0C32A00CDA6EC /* DataSource.h */,
 				3B76504919F0C32A00CDA6EC /* DataSource.m */,
-				3B76502919F06D8300CDA6EC /* Images.xcassets */,
+				3BC0D72D19F6B9CC00CE2929 /* images.xcassets */,
 				3B76502B19F06D8300CDA6EC /* LaunchScreen.xib */,
 				3B76502019F06D8300CDA6EC /* EWEQuery.xcdatamodeld */,
 				3B76501919F06D8300CDA6EC /* Supporting Files */,
@@ -237,7 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B76502D19F06D8300CDA6EC /* LaunchScreen.xib in Resources */,
-				3B76502A19F06D8300CDA6EC /* Images.xcassets in Resources */,
+				3BC0D72E19F6B9CC00CE2929 /* images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,11 +313,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B4B81D719F967E700BF2C29 /* Query.m in Sources */,
+				3B4B81DA19F9A03700BF2C29 /* TestMainViewController.m in Sources */,
 				3B76501F19F06D8300CDA6EC /* AppDelegate.m in Sources */,
+				3BFDEC2D19FEC6A20037B082 /* AnswerViewController.m in Sources */,
 				3B76501C19F06D8300CDA6EC /* main.m in Sources */,
 				3B76504A19F0C32A00CDA6EC /* DataSource.m in Sources */,
+				3B76504D19F1688B00CDA6EC /* CustomMainViewCell.m in Sources */,
+				3B4B81E619FAB41E00BF2C29 /* Answer.m in Sources */,
 				3B76502219F06D8300CDA6EC /* EWEQuery.xcdatamodeld in Sources */,
-				3B76504419F0740800CDA6EC /* MainViewController.m in Sources */,
+				3BC0D72A19F6372F00CE2929 /* AddQuestionView.m in Sources */,
 				3B76504719F0A86B00CDA6EC /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +443,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EWEQuery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -427,6 +458,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EWEQuery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

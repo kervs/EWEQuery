@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+
 
 @interface AddQuestionView : UIViewController
+
+@property (nonatomic,assign)bool *isAnswer;
+@property (nonatomic,strong) PFObject *question;
 
 @end

@@ -10,12 +10,11 @@
 #import <Parse/Parse.h>
 #import <FacebookSDK.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
-#import "MainViewController.h"
+#import "TestMainViewController.h"
 
 @interface LoginViewController ()
 
 @property (nonatomic, strong)UIButton *longinWithFB;
-@property (nonatomic,strong)UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -30,22 +29,19 @@
     [self.longinWithFB setTitle:@"Log in with FaceBook" forState:UIControlStateNormal];
     self.longinWithFB.backgroundColor = [UIColor blueColor];
     [self.longinWithFB addTarget:self action:@selector(longinWithFBPressed:) forControlEvents:UIControlEventTouchUpInside];
-    self.activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    self.activityIndicator.center = CGPointMake(85, 20);
-    self.activityIndicator.hidden = YES;
+    
+    
+    
     
     [self.view addSubview:self.longinWithFB];
-    [self.view addSubview:self.activityIndicator];
+  
 }
 
 - (void)longinWithFBPressed: (id)sender {
-    self.activityIndicator.hidden = NO;
-    [self.activityIndicator startAnimating];
+    
     NSArray *permissionArray = @[@"user_about_me",@"user_interests",@"user_birthday",@"user_relationships",@"user_location", @"user_relationship_details"];
     [PFFacebookUtils logInWithPermissions:permissionArray block:^(PFUser *user, NSError *error) {
         if (!user) {
-            [self.activityIndicator stopAnimating];
-            self.activityIndicator.hidden = YES;
             if (!error) {
                 UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Log In Error" message:@"Facebook Log In was Canceled" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
                 [alertView show];
@@ -57,12 +53,21 @@
             }
             
         } else {
-            MainViewController *mainView = [[MainViewController alloc]init];
+            TestMainViewController *mainView = [[TestMainViewController alloc]init];
             [self updateUserInformation];
-            [self presentViewController:mainView animated:YES completion:nil];
+            [self.navigationController pushViewController:mainView animated:YES];
         }
     }];
     
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    PFUser *user = [PFUser currentUser];
+    if (user.username != nil) {
+        TestMainViewController *mainView = [[TestMainViewController alloc]init];
+        [self updateUserInformation];
+        [self.navigationController pushViewController:mainView animated:YES];
+    }
 }
 
 #pragma mark - FB helper method

@@ -2,26 +2,107 @@
 //  AnswerViewController.m
 //  EWEQuery
 //
-//  Created by Kervins Valcourt on 10/24/14.
+//  Created by Kervins Valcourt on 10/27/14.
 //  Copyright (c) 2014 EastoftheWestEnd. All rights reserved.
 //
 
 #import "AnswerViewController.h"
+#import "AddQuestionView.h"
 
 @interface AnswerViewController ()
+
+@property (nonatomic, strong)UIBarButtonItem *addAnswerButton;
+@property (nonatomic,strong)UIBarButtonItem *cancelButton;
+@property (nonatomic,strong)NSString *className;
 
 @end
 
 @implementation AnswerViewController
 
+- (id)initWithStyle:(UITableViewStyle)style {
+    self = [super initWithStyle:style];
+    if (self) {
+        // This table displays items in the Todo class
+        self.className = @"Answer";
+        self.pullToRefreshEnabled = YES;
+        self.paginationEnabled = NO;
+        self.objectsPerPage = 25;
+        [self.navigationItem setHidesBackButton:YES animated:YES];
+        
+        
+    }
+    return self;
+}
+- (PFQuery *)queryForTable {
+    PFQuery *query = [PFQuery queryWithClassName:self.className];
+    [query whereKey:@"questionPosted" equalTo:self.question];
+    
+    // If no objects are loaded in memory, we look to the cache
+    // first to fill the table and then subsequently do a query
+    // against the network.
+    if ([self.objects count] == 0) {
+        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    }
+    
+    [query orderByDescending:@"createdAt"];
+    
+    return query;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _cancelButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"cancel"] style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonPressed:)];
+    self.navigationItem.leftBarButtonItem = _cancelButton;
+    
+    _addAnswerButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"idea"] style:UIBarButtonItemStylePlain target:self action:@selector(addButtonPressed:)];
+    self.navigationItem.rightBarButtonItem = _addAnswerButton;
 }
 
+- (void)cancelButtonPressed:(id) sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)addButtonPressed:(id) sender {
+    AddQuestionView *addQuestionView = [[AddQuestionView alloc]init];
+    addQuestionView.isAnswer = (bool *) YES;
+    addQuestionView.question = self.question;
+    
+    self.modalPresentationStyle = UIModalPresentationCurrentContext;
+    [self presentViewController:addQuestionView animated:YES completion:nil];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+                        object:(PFObject *)object {
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:CellIdentifier];
+    }
+    
+    // Configure the cell to show todo item with a priority at the bottom
+    cell.textLabel.text = [object objectForKey:@"answer"];
+    
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        PFObject *object = [self.objects objectAtIndex:indexPath.row];
+        [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            [self loadObjects];
+        }];
+    }
 }
 
 /*

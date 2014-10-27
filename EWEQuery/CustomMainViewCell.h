@@ -10,4 +10,7 @@
 
 @interface CustomMainViewCell : UITableViewCell
 
+
+
+
 @end

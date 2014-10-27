@@ -8,6 +8,13 @@
 
 #import "Query.h"
 
+
 @implementation Query
+
+@dynamic query;
+@dynamic askedBy;
++ (NSString *)parseClassName {
+    return @"Query";
+}
 
 @end
