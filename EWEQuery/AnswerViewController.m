@@ -8,13 +8,14 @@
 
 #import "AnswerViewController.h"
 #import "AddQuestionView.h"
+#import "CustomAnswerViewCell.h"
 
 @interface AnswerViewController ()
 
 @property (nonatomic, strong)UIBarButtonItem *addAnswerButton;
 @property (nonatomic,strong)UIBarButtonItem *cancelButton;
 @property (nonatomic,strong)NSString *className;
-
+@property (nonatomic,strong)PFObject *currentLikedAnswer;
 @end
 
 @implementation AnswerViewController
@@ -53,6 +54,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self.tableView registerClass:[CustomAnswerViewCell class] forCellReuseIdentifier:@"cell"];
+    
     _cancelButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"cancel"] style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonPressed:)];
     self.navigationItem.leftBarButtonItem = _cancelButton;
     
@@ -80,21 +83,22 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
                         object:(PFObject *)object {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:CellIdentifier];
-    }
-    
-    // Configure the cell to show todo item with a priority at the bottom
-    cell.textLabel.text = [object objectForKey:@"answer"];
-    
-    
+    CustomAnswerViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    cell.currentAnswer = object;
     return cell;
 }
 
+- (void)likeButtonFired:(id)sender {
+    
+    //PFQuery *query = [PFQuery queryWithClassName:@"Answer"];
+    //[query whereKey:@"objectId" equalTo:self.currentLikedAnswer.objectId];
+    NSLog(@"%@",self.currentLikedAnswer.objectId);
+    
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 170;
+}
 - (void)tableView:(UITableView *)tableView
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {

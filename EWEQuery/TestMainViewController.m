@@ -8,6 +8,7 @@
 #import "AddQuestionView.h"
 #import "AnswerViewController.h"
 #import "TestMainViewController.h"
+#import "CustomMainViewCell.h"
 
 @interface TestMainViewController ()
 @property (nonatomic, strong)UIBarButtonItem *addNoteButton;
@@ -27,7 +28,6 @@
         self.paginationEnabled = NO;
         self.objectsPerPage = 25;
         [self.navigationItem setHidesBackButton:YES animated:YES];
-        
         
     }
     return self;
@@ -51,6 +51,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self.tableView registerClass:[CustomMainViewCell class] forCellReuseIdentifier:@"cell"];
 
    
    self.title = @"EWEQuery";
@@ -78,7 +79,9 @@
     [self presentViewController:addQuestionView animated:YES completion:nil];
 }
 
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 100;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -87,16 +90,31 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
                         object:(PFObject *)object {
-    static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
-                                      reuseIdentifier:CellIdentifier];
-    }
+    CustomMainViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    // Configure the cell to show todo item with a priority at the bottom
-    cell.textLabel.text = [object objectForKey:@"query"];
+    cell.smileyFace.image = [UIImage imageNamed:@"happy"];
+    
+    cell.questionAsk.text = [object objectForKey:@"query"];
+    
+    PFQuery *qry = [PFQuery queryWithClassName:@"Answer"];
+    [qry whereKey:@"questionPosted" equalTo:object];
+
+    [qry countObjectsInBackgroundWithBlock:^(int count, NSError *error) {
+        // count tells you how many objects matched the query
+        cell.numberOfAnswers.text = [NSString stringWithFormat:@"%i answer",count];
+        
+        if (count <= 1) {
+            cell.indicatorOfInterest.image = [UIImage imageNamed:@"fire1"];
+        } else if (count > 1 && count < 3) {
+            cell.indicatorOfInterest.image = [UIImage imageNamed:@"fire2"];
+        } else{
+            cell.indicatorOfInterest.image = [UIImage imageNamed:@"fire3"];
+        }
+    }];
+    
+
+    
     
     
     return cell;

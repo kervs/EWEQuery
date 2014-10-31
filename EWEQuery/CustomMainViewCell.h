@@ -7,10 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Query.h"
 
-@interface CustomMainViewCell : UITableViewCell
+@interface CustomMainViewCell : PFTableViewCell
 
-
+@property (nonatomic, strong) UIImageView *smileyFace;
+@property (nonatomic, strong) UILabel *numberOfAnswers;
+@property (nonatomic, strong) UILabel *questionAsk;
+@property (nonatomic, strong) UIImageView *indicatorOfInterest;
 
 
 @end

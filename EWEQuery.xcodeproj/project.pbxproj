@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B0AAD3C19FF179A001029EA /* CustomAnswerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B0AAD3B19FF179A001029EA /* CustomAnswerViewCell.m */; };
 		3B4B81D719F967E700BF2C29 /* Query.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B81D619F967E700BF2C29 /* Query.m */; };
 		3B4B81DA19F9A03700BF2C29 /* TestMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B81D919F9A03700BF2C29 /* TestMainViewController.m */; };
 		3B4B81E619FAB41E00BF2C29 /* Answer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4B81E519FAB41E00BF2C29 /* Answer.m */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B0AAD3A19FF179A001029EA /* CustomAnswerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnswerViewCell.h; sourceTree = "<group>"; };
+		3B0AAD3B19FF179A001029EA /* CustomAnswerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnswerViewCell.m; sourceTree = "<group>"; };
 		3B4B81D519F967E700BF2C29 /* Query.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Query.h; sourceTree = "<group>"; };
 		3B4B81D619F967E700BF2C29 /* Query.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Query.m; sourceTree = "<group>"; };
 		3B4B81D819F9A03700BF2C29 /* TestMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestMainViewController.h; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 				3B4B81E519FAB41E00BF2C29 /* Answer.m */,
 				3B76504519F0A86B00CDA6EC /* LoginViewController.h */,
 				3B76504619F0A86B00CDA6EC /* LoginViewController.m */,
+				3B0AAD3A19FF179A001029EA /* CustomAnswerViewCell.h */,
+				3B0AAD3B19FF179A001029EA /* CustomAnswerViewCell.m */,
 				3B76504B19F1688B00CDA6EC /* CustomMainViewCell.h */,
 				3B76504C19F1688B00CDA6EC /* CustomMainViewCell.m */,
 				3B4B81D819F9A03700BF2C29 /* TestMainViewController.h */,
@@ -320,6 +325,7 @@
 				3B76501C19F06D8300CDA6EC /* main.m in Sources */,
 				3B76504A19F0C32A00CDA6EC /* DataSource.m in Sources */,
 				3B76504D19F1688B00CDA6EC /* CustomMainViewCell.m in Sources */,
+				3B0AAD3C19FF179A001029EA /* CustomAnswerViewCell.m in Sources */,
 				3B4B81E619FAB41E00BF2C29 /* Answer.m in Sources */,
 				3B76502219F06D8300CDA6EC /* EWEQuery.xcdatamodeld in Sources */,
 				3BC0D72A19F6372F00CE2929 /* AddQuestionView.m in Sources */,

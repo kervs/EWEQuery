@@ -8,10 +8,6 @@
 
 #import "CustomMainViewCell.h"
 @interface CustomMainViewCell ()
-@property (nonatomic, strong) UIImageView *smileyFace;
-@property (nonatomic, strong) UILabel *numberOfAnswers;
-@property (nonatomic, strong) UITextView *questionAsk;
-@property (nonatomic, strong) UIImageView *indicatorOfInterest;
 
 @end
 
@@ -25,8 +21,9 @@
         // Initialization code
         self.smileyFace = [[UIImageView alloc] init];
         self.numberOfAnswers = [[UILabel alloc] init];
-        self.questionAsk = [[UITextView alloc] init];
+        self.questionAsk = [[UILabel alloc] init];
         self.indicatorOfInterest = [[UIImageView alloc] init];
+        self.questionAsk.numberOfLines = 0;
         
         
         for (UIView *view in @[self.smileyFace, self.numberOfAnswers, self.questionAsk, self.indicatorOfInterest]) {
@@ -37,6 +34,21 @@
     }
     return self;
 }
+
+- (void) layoutSubviews {
+    [super layoutSubviews];
+    
+    
+    self.smileyFace.frame = CGRectMake(250, 20, 30, 30);
+    
+    self.questionAsk.frame = CGRectMake(20, 20, 200, 50);
+    
+    self.numberOfAnswers.frame = CGRectMake(20, 70, 100, 20);
+    
+    self.indicatorOfInterest.frame = CGRectMake(120, 70, 40, 20);
+        
+}
+
 
 
 
