@@ -16,6 +16,7 @@
 @property (nonatomic,strong)UIBarButtonItem *cancelButton;
 @property (nonatomic,strong)NSString *className;
 @property (nonatomic,strong)PFObject *currentLikedAnswer;
+
 @end
 
 @implementation AnswerViewController
@@ -85,17 +86,13 @@
                         object:(PFObject *)object {
     CustomAnswerViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.currentAnswer = object;
+    
+
     return cell;
 }
 
-- (void)likeButtonFired:(id)sender {
-    
-    //PFQuery *query = [PFQuery queryWithClassName:@"Answer"];
-    //[query whereKey:@"objectId" equalTo:self.currentLikedAnswer.objectId];
-    NSLog(@"%@",self.currentLikedAnswer.objectId);
-    
-    
-}
+  
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 170;
 }

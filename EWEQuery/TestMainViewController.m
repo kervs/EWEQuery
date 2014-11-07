@@ -9,9 +9,10 @@
 #import "AnswerViewController.h"
 #import "TestMainViewController.h"
 #import "CustomMainViewCell.h"
-
+#import "MenuViewController.h"
 @interface TestMainViewController ()
 @property (nonatomic, strong)UIBarButtonItem *addNoteButton;
+@property (nonatomic, strong)UIBarButtonItem *menuButton;
 @property (nonatomic,strong)UIBarButtonItem *exitButton;
 @property (nonatomic,strong)NSString *className;
 
@@ -61,7 +62,8 @@
     self.navigationItem.leftBarButtonItem = _exitButton;
     
     _addNoteButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"idea"] style:UIBarButtonItemStylePlain target:self action:@selector(addButtonPressed:)];
-    self.navigationItem.rightBarButtonItem = _addNoteButton;
+     _menuButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"menu"] style:UIBarButtonItemStylePlain target:self action:@selector(menuButtonPressed:)];
+    self.navigationItem.rightBarButtonItems = [NSArray arrayWithObjects: _menuButton,_addNoteButton, nil];
 
     
     
@@ -70,6 +72,13 @@
 - (void)exitButtonPressed:(id) sender {
     [PFUser logOut];
    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void)menuButtonPressed:(id) sender {
+    
+    MenuViewController *menuView = [[MenuViewController alloc]init];
+    [self.navigationController pushViewController:menuView animated:YES];
+    
 }
 
 - (void)addButtonPressed:(id) sender {

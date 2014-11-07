@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
 
-@interface DataSource : UIViewController
+@interface DataSource : UIViewController 
 
 - (void) postQuery:(NSString *)question andPost:(PFUser *)user;
 - (void) postAnswer:(NSString *)answer answerBy:(PFUser *)user toThisQuestion:(PFObject *)question;
+-(void) userImage:(UIImage *) image userAboutMe:(NSString *)aboutMe;
 
 @end

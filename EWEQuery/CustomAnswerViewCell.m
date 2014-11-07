@@ -12,6 +12,8 @@
 @property (nonatomic, strong) UILabel *numberOfLikes;
 @property (nonatomic, strong) UILabel *answerLbl;
 @property (nonatomic, strong) UIButton *likeButton;
+@property (nonatomic,strong) NSArray *arrayLike;
+
 
 @end
 
@@ -56,16 +58,32 @@
 
 - (void)setCurrentAnswer:(PFObject *)currentAnswer {
     _currentAnswer = currentAnswer;
-    
+  
     _answerLbl.text = [currentAnswer objectForKey:@"answer"];
     _smileyFace.image = [UIImage imageNamed:@"happy"];
-    _numberOfLikes.text = @"99 likes";
+    
+    
+    self.arrayLike = [[NSArray alloc]initWithArray:[currentAnswer objectForKey:@"likes"]];
+    if (self.arrayLike.count == 0) {
+         _numberOfLikes.text = @"0 likes";
+    }
+    
+    for (int i = 0; i < self.arrayLike.count; ++i) {
+        if ([[PFUser currentUser].objectId isEqualToString: (NSString *) self.arrayLike[i]]) {
+            NSLog(@"it is working");
+            [self.likeButton setImage:[UIImage imageNamed:@"likeFill"] forState:UIControlStateNormal];
+            
+
+        }
+        _numberOfLikes.text = [NSString stringWithFormat:@"%lu likes",(unsigned long)self.arrayLike.count];
+    }
 }
 
 - (void)likeButtonFired: (id) sender {
     // pass this along to AnswerViewController (or any class)
     [_currentAnswer addUniqueObject:[PFUser currentUser].objectId forKey:@"likes"];
     [_currentAnswer saveInBackground];
+    
 }
 /*
 // Only override drawRect: if you perform custom drawing.

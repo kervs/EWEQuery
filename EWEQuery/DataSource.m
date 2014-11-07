@@ -13,6 +13,7 @@
 #import <FacebookSDK.h>
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
+
 @implementation DataSource
 
 - (void) postQuery:(NSString *)question andPost:(PFUser *)user{
@@ -36,6 +37,29 @@
     
 }
 
+-(void) userImage:(UIImage *) image userAboutMe:(NSString *)aboutMe {
+    NSData* data = UIImageJPEGRepresentation(image, 0.5f);
+    PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:data];
+    
+    // Save the image to Parse
+    [[PFUser currentUser]setObject:imageFile forKey:@"userImage"];
+            
+            [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (!error) {
+                    NSLog(@"Saved");
+                }
+                else{
+                    // Error
+                    NSLog(@"Error: %@ %@", error, [error userInfo]);
+                }
+            }];
+    
+
+    
+    [[PFUser currentUser]setObject:aboutMe forKey:@"aboutMe"];
+    [[PFUser currentUser] saveInBackground];
+    
+}
 
 - (void) postAnswer:(NSString *)answer answerBy:(PFUser *)user toThisQuestion:(PFObject *)question {
     
